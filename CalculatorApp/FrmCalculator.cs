@@ -13,6 +13,8 @@ namespace CalculatorApp
         [DllImport("user32.dll")]
         static extern bool HideCaret(IntPtr hWnd);
         private CharacterLogic charact;
+        OperationClass op = new OperationClass();
+        bool func = false;
         public FrmCalculator()
         {
             InitializeComponent();
@@ -21,89 +23,46 @@ namespace CalculatorApp
                 item.GotFocus += delegate { HideCaret(item.Handle); };
             charact = new CharacterLogic();
         }
-
-        private void button3_MouseHover(object sender, EventArgs e)
+        private void General_MouseLeave(object sender, EventArgs e)
         {
-            button3.FlatAppearance.BorderSize = 2;
-            button3.FlatAppearance.BorderColor = Color.FromArgb(190, 190, 190);
+            Button b = (Button)sender;
+            b.FlatAppearance.BorderSize = 0;
+            b.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
         }
-        private void button3_MouseLeave(object sender, EventArgs e)
+        private void General_MouseHover(object sender, EventArgs e)
         {
-            button3.FlatAppearance.BorderSize = 0;
+            Button b = (Button)sender;
+            b.FlatAppearance.BorderSize = 1;
         }
-        private void button4_MouseHover(object sender, EventArgs e)
+        private void General_MouseDown(object sender, MouseEventArgs e)
         {
-            button4.FlatAppearance.BorderSize = 2;
-            button4.FlatAppearance.BorderColor = Color.FromArgb(157, 157, 157);
+            Button b = (Button)sender;
+            b.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
         }
-
-        private void button4_MouseLeave(object sender, EventArgs e)
+        private void General1_MouseHover(object sender, EventArgs e)
         {
-            button4.FlatAppearance.BorderSize = 0;
-        }
-
-        private void button5_MouseHover(object sender, EventArgs e)
-        {
-            button5.FlatAppearance.BorderSize = 2;
-            button5.FlatAppearance.BorderColor = Color.FromArgb(190, 190, 190);
-        }
-        private void button5_MouseLeave(object sender, EventArgs e)
-        {
-            button5.FlatAppearance.BorderSize = 0;
-        }
-        private void button8_MouseHover(object sender, EventArgs e)
-        {
-            button8.FlatAppearance.BorderSize = 2;
-            button8.FlatAppearance.BorderColor = Color.FromArgb(190, 190, 190);
+            Button b = (Button)sender;
+            b.FlatAppearance.BorderSize = 2;
+            b.FlatAppearance.BorderColor = Color.FromArgb(157, 157, 157);
         }
 
-        private void button8_MouseLeave(object sender, EventArgs e)
+        private void General1_MouseLeave(object sender, EventArgs e)
         {
-            button8.FlatAppearance.BorderSize = 0;
+            Button b = (Button)sender;
+            b.FlatAppearance.BorderSize = 0;
         }
-        private void button7_MouseHover(object sender, EventArgs e)
+        private void General2_MouseHover(object sender, EventArgs e)
         {
-            button7.FlatAppearance.BorderSize = 2;
-            button7.FlatAppearance.BorderColor = Color.FromArgb(190, 190, 190);
-        }
-
-        private void button7_MouseLeave(object sender, EventArgs e)
-        {
-            button7.FlatAppearance.BorderSize = 0;
+            Button b = (Button)sender;
+            b.FlatAppearance.BorderSize = 2;
+            b.FlatAppearance.BorderColor = Color.FromArgb(190, 190, 190);
         }
 
-        private void button1_MouseHover(object sender, EventArgs e)
+        private void General2_MouseLeave(object sender, EventArgs e)
         {
-            button1.FlatAppearance.BorderSize = 2;
-            button1.FlatAppearance.BorderColor = Color.FromArgb(190, 190, 190);
+            Button b = (Button)sender;
+            b.FlatAppearance.BorderSize = 0;
         }
-
-        private void button1_MouseLeave(object sender, EventArgs e)
-        {
-            button1.FlatAppearance.BorderSize = 0;
-        }
-
-        private void button2_MouseHover(object sender, EventArgs e)
-        {
-            button2.FlatAppearance.BorderSize = 2;
-            button2.FlatAppearance.BorderColor = Color.FromArgb(190, 190, 190);
-        }
-
-        private void button2_MouseLeave(object sender, EventArgs e)
-        {
-            button2.FlatAppearance.BorderSize = 0;
-        }
-        private void button6_MouseHover(object sender, EventArgs e)
-        {
-            button6.FlatAppearance.BorderSize = 2;
-            button6.FlatAppearance.BorderColor = Color.FromArgb(190, 190, 190);
-        }
-
-        private void button6_MouseLeave(object sender, EventArgs e)
-        {
-            button6.FlatAppearance.BorderSize = 0;
-        }
-
         private void button9_MouseHover(object sender, EventArgs e)
         {
             button9.FlatAppearance.BorderSize = 2;
@@ -140,354 +99,6 @@ namespace CalculatorApp
             pictureBox2.BackColor = Color.FromArgb(172, 172, 172);
             button10.FlatAppearance.BorderColor = Color.FromArgb(143, 143, 143);
         }
-
-        private void button11_MouseHover(object sender, EventArgs e)
-        {
-            button11.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button11_MouseLeave(object sender, EventArgs e)
-        {
-            button11.FlatAppearance.BorderSize = 0;
-            button11.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button11_MouseDown(object sender, MouseEventArgs e)
-        {
-            button11.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button12_MouseHover(object sender, EventArgs e)
-        {
-            button12.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button12_MouseLeave(object sender, EventArgs e)
-        {
-            button12.FlatAppearance.BorderSize = 0;
-            button12.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button12_MouseDown(object sender, MouseEventArgs e)
-        {
-            button12.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button13_MouseHover(object sender, EventArgs e)
-        {
-            button13.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button13_MouseLeave(object sender, EventArgs e)
-        {
-            button13.FlatAppearance.BorderSize = 0;
-            button13.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button13_MouseDown(object sender, MouseEventArgs e)
-        {
-            button13.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button14_MouseHover(object sender, EventArgs e)
-        {
-            button14.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button14_MouseLeave(object sender, EventArgs e)
-        {
-            button14.FlatAppearance.BorderSize = 0;
-            button14.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button14_MouseDown(object sender, MouseEventArgs e)
-        {
-            button14.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button15_MouseHover(object sender, EventArgs e)
-        {
-            button15.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button15_MouseLeave(object sender, EventArgs e)
-        {
-            button15.FlatAppearance.BorderSize = 0;
-            button15.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button15_MouseDown(object sender, MouseEventArgs e)
-        {
-            button16.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button16_MouseHover(object sender, EventArgs e)
-        {
-            button16.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button16_MouseLeave(object sender, EventArgs e)
-        {
-            button16.FlatAppearance.BorderSize = 0;
-            button16.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button16_MouseDown(object sender, MouseEventArgs e)
-        {
-            button16.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button17_MouseHover(object sender, EventArgs e)
-        {
-            button17.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button17_MouseLeave(object sender, EventArgs e)
-        {
-            button17.FlatAppearance.BorderSize = 0;
-            button17.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button17_MouseDown(object sender, MouseEventArgs e)
-        {
-            button17.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button24_MouseHover(object sender, EventArgs e)
-        {
-            button24.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button24_MouseLeave(object sender, EventArgs e)
-        {
-            button24.FlatAppearance.BorderSize = 0;
-            button24.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button24_MouseDown(object sender, MouseEventArgs e)
-        {
-            button24.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button23_MouseHover(object sender, EventArgs e)
-        {
-            button23.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button23_MouseLeave(object sender, EventArgs e)
-        {
-            button23.FlatAppearance.BorderSize = 0;
-            button23.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button23_MouseDown(object sender, MouseEventArgs e)
-        {
-            button23.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button22_MouseHover(object sender, EventArgs e)
-        {
-            button22.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button22_MouseLeave(object sender, EventArgs e)
-        {
-            button22.FlatAppearance.BorderSize = 0;
-            button22.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button22_MouseDown(object sender, MouseEventArgs e)
-        {
-            button22.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button31_MouseHover(object sender, EventArgs e)
-        {
-            button31.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button31_MouseLeave(object sender, EventArgs e)
-        {
-            button31.FlatAppearance.BorderSize = 0;
-            button31.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button31_MouseDown(object sender, MouseEventArgs e)
-        {
-            button31.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button30_MouseHover(object sender, EventArgs e)
-        {
-            button30.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button30_MouseLeave(object sender, EventArgs e)
-        {
-            button30.FlatAppearance.BorderSize = 0;
-            button30.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button30_MouseDown(object sender, MouseEventArgs e)
-        {
-            button30.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button29_MouseHover(object sender, EventArgs e)
-        {
-            button29.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button29_MouseLeave(object sender, EventArgs e)
-        {
-            button29.FlatAppearance.BorderSize = 0;
-            button29.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button29_MouseDown(object sender, MouseEventArgs e)
-        {
-            button29.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-
-        private void button38_MouseHover(object sender, EventArgs e)
-        {
-            button38.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button38_MouseLeave(object sender, EventArgs e)
-        {
-            button38.FlatAppearance.BorderSize = 0;
-            button38.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button38_MouseDown(object sender, MouseEventArgs e)
-        {
-            button38.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button37_MouseHover(object sender, EventArgs e)
-        {
-            button37.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button37_MouseLeave(object sender, EventArgs e)
-        {
-            button37.FlatAppearance.BorderSize = 0;
-            button37.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button37_MouseDown(object sender, MouseEventArgs e)
-        {
-            button37.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button36_MouseHover(object sender, EventArgs e)
-        {
-            button36.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button36_MouseLeave(object sender, EventArgs e)
-        {
-            button36.FlatAppearance.BorderSize = 0;
-            button36.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button36_MouseDown(object sender, MouseEventArgs e)
-        {
-            button36.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button39_MouseHover(object sender, EventArgs e)
-        {
-            button39.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button39_MouseLeave(object sender, EventArgs e)
-        {
-            button39.FlatAppearance.BorderSize = 0;
-            button39.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button39_MouseDown(object sender, MouseEventArgs e)
-        {
-            button39.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button40_MouseHover(object sender, EventArgs e)
-        {
-            button40.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button40_MouseLeave(object sender, EventArgs e)
-        {
-            button40.FlatAppearance.BorderSize = 0;
-            button40.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button40_MouseDown(object sender, MouseEventArgs e)
-        {
-            button40.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button41_MouseHover(object sender, EventArgs e)
-        {
-            button41.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button41_MouseLeave(object sender, EventArgs e)
-        {
-            button41.FlatAppearance.BorderSize = 0;
-            button41.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button41_MouseDown(object sender, MouseEventArgs e)
-        {
-            button41.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button42_MouseHover(object sender, EventArgs e)
-        {
-            button42.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button42_MouseLeave(object sender, EventArgs e)
-        {
-            button42.FlatAppearance.BorderSize = 0;
-            button42.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button42_MouseDown(object sender, MouseEventArgs e)
-        {
-            button42.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button43_MouseHover(object sender, EventArgs e)
-        {
-            button43.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button43_MouseLeave(object sender, EventArgs e)
-        {
-            button43.FlatAppearance.BorderSize = 0;
-            button43.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button43_MouseDown(object sender, MouseEventArgs e)
-        {
-            button43.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button44_MouseHover(object sender, EventArgs e)
-        {
-            button44.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button44_MouseLeave(object sender, EventArgs e)
-        {
-            button44.FlatAppearance.BorderSize = 0;
-            button44.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button44_MouseDown(object sender, MouseEventArgs e)
-        {
-            button44.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-        private void button45_MouseHover(object sender, EventArgs e)
-        {
-            button45.FlatAppearance.BorderSize = 1;
-        }
-
-        private void button45_MouseLeave(object sender, EventArgs e)
-        {
-            button45.FlatAppearance.BorderSize = 0;
-            button45.FlatAppearance.BorderColor = Color.FromArgb(159, 159, 159);
-        }
-
-        private void button45_MouseDown(object sender, MouseEventArgs e)
-        {
-            button45.FlatAppearance.BorderColor = Color.FromArgb(142, 142, 142);
-        }
-
         private void button46_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -506,74 +117,326 @@ namespace CalculatorApp
 
         private void button21_Click(object sender, EventArgs e)
         {
-            textBox1.Text = charact.AddCharacter('7', textBox1.Text);
-            button38.Text = charact.CE(textBox1.Text);
+            if (SingletonChar.singleton.fue1sobrex)
+            {
+                textBox1.Clear();
+                textBox1.Text = charact.AddCharacter('7', textBox1.Text).ToString("n0");
+                SingletonChar.singleton.fue1sobrex = false;
+            }
+            else if (charact.PointExist('.', textBox1.Text))
+            {
+                textBox1.Text = charact.AddCharacter('7', textBox1.Text).ToString();
+            }
+            else if (SingletonChar.singleton.Btnresultado)
+            {
+                SingletonChar.singleton.Btnresultado = false;
+                SingletonChar.singleton.SaveNumber = 0;
+                SingletonChar.singleton.LastNumber = 0;
+                SingletonChar.singleton.text = "";
+                SingletonChar.singleton.signo = "";
+                SingletonChar.singleton.func = "";
+                lblResultado.Text = "";
+                textBox1.Text = charact.AddCharacter('7', textBox1.Text).ToString("n0");
+                button38.Text = charact.CE(textBox1.Text);
+            }
+            else
+            {
+                textBox1.Text = charact.AddCharacter('7', textBox1.Text).ToString("n0");
+                button38.Text = charact.CE(textBox1.Text);
+            }
         }
 
         private void button28_Click(object sender, EventArgs e)
         {
-            textBox1.Text = charact.AddCharacter('8', textBox1.Text);
-            button38.Text = charact.CE(textBox1.Text);
+            if (SingletonChar.singleton.fue1sobrex)
+            {
+                textBox1.Clear();
+                textBox1.Text = charact.AddCharacter('8', textBox1.Text).ToString("n0");
+                SingletonChar.singleton.fue1sobrex = false;
+            }
+            else if (charact.PointExist('.', textBox1.Text))
+            {
+                textBox1.Text = charact.AddCharacter('8', textBox1.Text).ToString();
+            }
+            else if (SingletonChar.singleton.Btnresultado)
+            {
+                SingletonChar.singleton.Btnresultado = false;
+                SingletonChar.singleton.SaveNumber = 0;
+                SingletonChar.singleton.LastNumber = 0;
+                SingletonChar.singleton.text = "";
+                SingletonChar.singleton.signo = "";
+                SingletonChar.singleton.func = "";
+                lblResultado.Text = "";
+                textBox1.Text = charact.AddCharacter('8', textBox1.Text).ToString("n0");
+                button38.Text = charact.CE(textBox1.Text);
+            }
+            else
+            {
+                textBox1.Text = charact.AddCharacter('8', textBox1.Text).ToString("n0");
+                button38.Text = charact.CE(textBox1.Text);
+            }
         }
 
         private void button35_Click(object sender, EventArgs e)
         {
-            textBox1.Text = charact.AddCharacter('9', textBox1.Text);
-            button38.Text = charact.CE(textBox1.Text);
+            if (SingletonChar.singleton.fue1sobrex)
+            {
+                textBox1.Clear();
+                textBox1.Text = charact.AddCharacter('9', textBox1.Text).ToString("n0");
+                SingletonChar.singleton.fue1sobrex = false;
+            }
+            else if (charact.PointExist('.', textBox1.Text))
+            {
+                textBox1.Text = charact.AddCharacter('9', textBox1.Text).ToString();
+            }
+            else if (SingletonChar.singleton.Btnresultado)
+            {
+                SingletonChar.singleton.Btnresultado = false;
+                SingletonChar.singleton.SaveNumber = 0;
+                SingletonChar.singleton.LastNumber = 0;
+                SingletonChar.singleton.text = "";
+                SingletonChar.singleton.signo = "";
+                SingletonChar.singleton.func = "";
+                lblResultado.Text = "";
+                textBox1.Text = charact.AddCharacter('9', textBox1.Text).ToString("n0");
+                button38.Text = charact.CE(textBox1.Text);
+            }
+            else
+            {
+                textBox1.Text = charact.AddCharacter('9', textBox1.Text).ToString("n0");
+                button38.Text = charact.CE(textBox1.Text);
+            }
         }
 
         private void button20_Click(object sender, EventArgs e)
         {
-            textBox1.Text = charact.AddCharacter('4', textBox1.Text);
-            button38.Text = charact.CE(textBox1.Text);
+            if (SingletonChar.singleton.fue1sobrex)
+            {
+                textBox1.Clear();
+                textBox1.Text = charact.AddCharacter('4', textBox1.Text).ToString("n0");
+                SingletonChar.singleton.fue1sobrex = false;
+            }
+            else if (charact.PointExist('.', textBox1.Text))
+            {
+                textBox1.Text = charact.AddCharacter('4', textBox1.Text).ToString();
+            }
+            else if (SingletonChar.singleton.Btnresultado)
+            {
+                SingletonChar.singleton.Btnresultado = false;
+                SingletonChar.singleton.SaveNumber = 0;
+                SingletonChar.singleton.LastNumber = 0;
+                SingletonChar.singleton.text = "";
+                SingletonChar.singleton.func = "";
+                SingletonChar.singleton.signo = "";
+                lblResultado.Text = "";
+                textBox1.Text = charact.AddCharacter('4', textBox1.Text).ToString("n0");
+                button38.Text = charact.CE(textBox1.Text);
+            }
+            else
+            {
+                textBox1.Text = charact.AddCharacter('4', textBox1.Text).ToString("n0");
+                button38.Text = charact.CE(textBox1.Text);
+            }
         }
 
         private void button27_Click(object sender, EventArgs e)
         {
-            textBox1.Text = charact.AddCharacter('5', textBox1.Text);
-            button38.Text = charact.CE(textBox1.Text);
+            if (SingletonChar.singleton.fue1sobrex)
+            {
+                textBox1.Clear();
+                textBox1.Text = charact.AddCharacter('5', textBox1.Text).ToString("n0");
+                SingletonChar.singleton.fue1sobrex = false;
+            }
+            else if (charact.PointExist('.', textBox1.Text))
+            {
+                textBox1.Text = charact.AddCharacter('5', textBox1.Text).ToString();
+            }
+            else if (SingletonChar.singleton.Btnresultado)
+            {
+                SingletonChar.singleton.Btnresultado = false;
+                SingletonChar.singleton.SaveNumber = 0;
+                SingletonChar.singleton.LastNumber = 0;
+                SingletonChar.singleton.text = "";
+                SingletonChar.singleton.signo = "";
+                SingletonChar.singleton.func = "";
+                lblResultado.Text = "";
+                textBox1.Text = charact.AddCharacter('5', textBox1.Text).ToString("n0");
+                button38.Text = charact.CE(textBox1.Text);
+            }
+            else
+            {
+                textBox1.Text = charact.AddCharacter('5', textBox1.Text).ToString("n0");
+                button38.Text = charact.CE(textBox1.Text);
+            }
         }
 
         private void button34_Click(object sender, EventArgs e)
         {
-            textBox1.Text = charact.AddCharacter('6', textBox1.Text);
-            button38.Text = charact.CE(textBox1.Text);
+            if (SingletonChar.singleton.fue1sobrex)
+            {
+                textBox1.Clear();
+                textBox1.Text = charact.AddCharacter('6', textBox1.Text).ToString("n0");
+                SingletonChar.singleton.fue1sobrex = false;
+            }
+            else if (charact.PointExist('.', textBox1.Text))
+            {
+                textBox1.Text = charact.AddCharacter('6', textBox1.Text).ToString();
+            }
+            else if (SingletonChar.singleton.Btnresultado)
+            {
+                SingletonChar.singleton.Btnresultado = false;
+                SingletonChar.singleton.SaveNumber = 0;
+                SingletonChar.singleton.LastNumber = 0;
+                SingletonChar.singleton.text = "";
+                SingletonChar.singleton.func = "";
+                SingletonChar.singleton.signo = "";
+                lblResultado.Text = "";
+                textBox1.Text = charact.AddCharacter('6', textBox1.Text).ToString("n0");
+                button38.Text = charact.CE(textBox1.Text);
+            }
+            else
+            {
+                textBox1.Text = charact.AddCharacter('6', textBox1.Text).ToString("n0");
+                button38.Text = charact.CE(textBox1.Text);
+            }
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
-            textBox1.Text = charact.AddCharacter('1', textBox1.Text);
-            button38.Text = charact.CE(textBox1.Text);
+            if (SingletonChar.singleton.fue1sobrex)
+            {
+                textBox1.Clear();
+                textBox1.Text = charact.AddCharacter('1', textBox1.Text).ToString("n0");
+                SingletonChar.singleton.fue1sobrex = false;
+            }
+            else if (charact.PointExist('.', textBox1.Text))
+            {
+                textBox1.Text = charact.AddCharacter('1', textBox1.Text).ToString();
+            }
+            else if (SingletonChar.singleton.Btnresultado)
+            {
+                SingletonChar.singleton.Btnresultado = false;
+                SingletonChar.singleton.SaveNumber = 0;
+                SingletonChar.singleton.LastNumber = 0;
+                SingletonChar.singleton.text = "";
+                SingletonChar.singleton.signo = "";
+                SingletonChar.singleton.func = "";
+                lblResultado.Text = "";
+                textBox1.Text = charact.AddCharacter('1', textBox1.Text).ToString("n0");
+                button38.Text = charact.CE(textBox1.Text);
+            }
+            else
+            {
+                textBox1.Text = charact.AddCharacter('1', textBox1.Text).ToString("n0");
+                button38.Text = charact.CE(textBox1.Text);
+            }
         }
 
         private void button26_Click(object sender, EventArgs e)
         {
-            textBox1.Text = charact.AddCharacter('2', textBox1.Text);
-            button38.Text = charact.CE(textBox1.Text);
+            if (SingletonChar.singleton.fue1sobrex)
+            {
+                textBox1.Clear();
+                SingletonChar.singleton.text = "";
+                textBox1.Text = charact.AddCharacter('2', textBox1.Text).ToString("n0");
+                SingletonChar.singleton.fue1sobrex = false;
+            }
+            else if (charact.PointExist('.', textBox1.Text))
+            {
+                textBox1.Text = charact.AddCharacter('2', textBox1.Text).ToString();
+            }
+            else if (SingletonChar.singleton.Btnresultado)
+            {
+                SingletonChar.singleton.Btnresultado = false;
+                SingletonChar.singleton.SaveNumber = 0;
+                SingletonChar.singleton.LastNumber = 0;
+                SingletonChar.singleton.text = "";
+                SingletonChar.singleton.signo = "";
+                SingletonChar.singleton.func = "";
+                lblResultado.Text = "";
+                textBox1.Text = charact.AddCharacter('2', textBox1.Text).ToString("n0");
+                button38.Text = charact.CE(textBox1.Text);
+            }
+            else
+            {
+                textBox1.Text = charact.AddCharacter('2', textBox1.Text).ToString("n0");
+                button38.Text = charact.CE(textBox1.Text);
+            }
         }
 
         private void button33_Click(object sender, EventArgs e)
         {
-            textBox1.Text = charact.AddCharacter('3', textBox1.Text);
-            button38.Text = charact.CE(textBox1.Text);
+            if (SingletonChar.singleton.fue1sobrex)
+            {
+                textBox1.Clear();
+                textBox1.Text = charact.AddCharacter('3', textBox1.Text).ToString("n0");
+                SingletonChar.singleton.fue1sobrex = false;
+            }
+            else if (charact.PointExist('.', textBox1.Text))
+            {
+                textBox1.Text = charact.AddCharacter('3', textBox1.Text).ToString();
+            }
+            else if (SingletonChar.singleton.Btnresultado)
+            {
+                SingletonChar.singleton.Btnresultado = false;
+                SingletonChar.singleton.SaveNumber = 0;
+                SingletonChar.singleton.LastNumber = 0;
+                SingletonChar.singleton.text = "";
+                SingletonChar.singleton.func = "";
+                SingletonChar.singleton.signo = "";
+                lblResultado.Text = "";
+                textBox1.Text = charact.AddCharacter('3', textBox1.Text).ToString("n0");
+                button38.Text = charact.CE(textBox1.Text);
+            }
+            else
+            {
+                textBox1.Text = charact.AddCharacter('3', textBox1.Text).ToString("n0");
+                button38.Text = charact.CE(textBox1.Text);
+            }
         }
 
         private void button25_Click(object sender, EventArgs e)
         {
-            textBox1.Text = charact.AddCharacter('0', textBox1.Text);
-            button38.Text = charact.CE(textBox1.Text);
+            if (SingletonChar.singleton.fue1sobrex)
+            {
+                textBox1.Clear();
+                SingletonChar.singleton.text = "";
+                textBox1.Text = charact.AddCharacter('2', textBox1.Text).ToString("n0");
+                SingletonChar.singleton.fue1sobrex = false;
+            }
+            else if (charact.PointExist('.', textBox1.Text))
+            {
+                textBox1.Text = charact.AddCharacter('0', textBox1.Text).ToString();
+            }
+            else if (SingletonChar.singleton.Btnresultado)
+            {
+                SingletonChar.singleton.Btnresultado = false;
+                SingletonChar.singleton.SaveNumber = 0;
+                SingletonChar.singleton.LastNumber = 0;
+                SingletonChar.singleton.text = "";
+                SingletonChar.singleton.signo = "";
+                SingletonChar.singleton.func = "";
+                lblResultado.Text = "";
+                textBox1.Text = charact.AddCharacter('0', textBox1.Text).ToString("n0");
+                button38.Text = charact.CE(textBox1.Text);
+            }
+            else
+            {
+                textBox1.Text = charact.AddCharacter('0', textBox1.Text).ToString("n0");
+                button38.Text = charact.CE(textBox1.Text);
+            }
         }
 
         private void button32_Click(object sender, EventArgs e)
         {
-            if (charact.PointExist('.',textBox1.Text))
+            if (charact.PointExist('.', textBox1.Text))
             {
 
             }
             else
             {
-                textBox1.Text = charact.AddCharacter('.', textBox1.Text);
-                button38.Text=charact.CE(textBox1.Text);
+                textBox1.Text = charact.AddPoint('.', textBox1.Text);
+                button38.Text = charact.CE(textBox1.Text);
             }
         }
 
@@ -581,12 +444,535 @@ namespace CalculatorApp
         {
             if (button38.Text == "CE")
             {
-                SingletonChar.singleton.text="";
+                SingletonChar.singleton.text = "";
+                SingletonChar.singleton.signo = "";
+                lblResultado.Text = "";
                 textBox1.Clear();
                 button38.Text = "C";
 
             }
         }
+
+        private void Signo_Click(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            func = false;
+            if (SingletonChar.singleton.Btnresultado)
+            {
+                SingletonChar.singleton.LastNumber = 0;
+                SingletonChar.singleton.SaveNumber = Convert.ToDecimal(textBox1.Text);
+                SingletonChar.singleton.Btnresultado = false;
+                SingletonChar.singleton.signo = Convert.ToString(b.Text);
+                if (lblResultado.Text.Contains('('))
+                {
+                    lblResultado.Text = $"({SingletonChar.singleton.SaveNumber} {SingletonChar.singleton.signo}";
+                }
+                else
+                {
+                    lblResultado.Text = $"{SingletonChar.singleton.SaveNumber} {SingletonChar.singleton.signo}";
+                }
+            }
+            else
+            {
+                if (SingletonChar.singleton.signo.Length != 0)
+                {
+                    MessageBox.Show("No se puede cambiar de signo hasta terminar la operacion actual.", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (String.IsNullOrWhiteSpace(textBox1.Text))
+                {
+                    MessageBox.Show("No se puede realizar la operacion falta el segundo numero.", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    SingletonChar.singleton.signo = Convert.ToString(b.Text);
+                    SingletonChar.singleton.SaveNumber = Convert.ToDecimal(textBox1.Text);
+                    if (lblResultado.Text.Contains('('))
+                    {
+                        lblResultado.Text += $" {SingletonChar.singleton.signo}";
+                    }
+                    else
+                    {
+                        lblResultado.Text = $"{SingletonChar.singleton.SaveNumber} {SingletonChar.singleton.signo}";
+                    }
+                    lblResultado.Visible = true;
+                    SingletonChar.singleton.text = "";
+                    textBox1.Clear();
+                }
+            }
+
+        }
+
+        private void button39_Click(object sender, EventArgs e)
+        {
+            if (func)
+            {
+                bool response = true;
+                Resultado(response);
+            }
+            else
+            {
+                bool response = false;
+                Resultado(response);
+            }
+        }
+
+        private void Resultado(bool response)
+        {
+            if (response == true)
+            {
+                if (String.IsNullOrWhiteSpace(textBox1.Text))
+                {
+                    MessageBox.Show("Escribe un numero para la operacion", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (SingletonChar.singleton.SaveNumber != 0)
+                {
+                    if (SingletonChar.singleton.Btnresultado == true)
+                    {
+                        SingletonChar.singleton.SaveNumber = Convert.ToDecimal(textBox1.Text);
+                        SingletonChar.singleton.Btnresultado = true;
+                        lblResultado.Text = $"{SingletonChar.singleton.SaveNumber}{SingletonChar.singleton.signo}";
+                        lblResultado.Visible = true;
+                        SingletonChar.singleton.text = "";
+                        if (lblResultado.Text.Contains('('))
+                        {
+                            lblResultado.Text = $"({textBox1.Text} {SingletonChar.singleton.signo} {SingletonChar.singleton.LastNumber}) =";
+                        }
+                        else
+                        {
+                            lblResultado.Text = $"{textBox1.Text} {SingletonChar.singleton.signo} {SingletonChar.singleton.LastNumber} =";
+                        }
+                        if (Convert.ToString(op.AdvancedOperation(Convert.ToDecimal(textBox1.Text))).Contains('.'))
+                        {
+                            textBox1.Text = op.AdvancedOperation(Convert.ToDecimal(SingletonChar.singleton.LastNumber)).ToString();
+                        }
+                        else
+                        {
+                            textBox1.Text = $"{op.AdvancedOperation(Convert.ToDecimal(SingletonChar.singleton.LastNumber))}";
+                        }
+                        SingletonChar.singleton.text = "";
+                    }
+                    else
+                    {
+                        if (SingletonChar.singleton.LastNumber == 0)
+                        {
+                            SingletonChar.singleton.LastNumber = Convert.ToDecimal(textBox1.Text);
+                        }
+                        SingletonChar.singleton.Btnresultado = true;
+                        lblResultado.Text = $"{SingletonChar.singleton.SaveNumber} {SingletonChar.singleton.signo}";
+                        lblResultado.Visible = true;
+                        SingletonChar.singleton.text = "";
+                        if (lblResultado.Text.Contains('('))
+                        {
+                            lblResultado.Text = $"({SingletonChar.singleton.SaveNumber} {SingletonChar.singleton.signo} {SingletonChar.singleton.LastNumber}) =";
+                        }
+                        else
+                        {
+                            lblResultado.Text = $"{SingletonChar.singleton.SaveNumber} {SingletonChar.singleton.signo} {SingletonChar.singleton.LastNumber} =";
+                        }
+                        if (Convert.ToString(op.AdvancedOperation(Convert.ToDecimal(textBox1.Text))).Contains('.'))
+                        {
+                            SingletonChar.singleton.resultado = Convert.ToDecimal(op.AdvancedOperation(Convert.ToDecimal(textBox1.Text)));
+                            textBox1.Text = SingletonChar.singleton.resultado.ToString();
+                        }
+                        else
+                        {
+                            SingletonChar.singleton.resultado = Convert.ToDecimal(op.AdvancedOperation(Convert.ToDecimal(textBox1.Text)));
+                            textBox1.Text = SingletonChar.singleton.resultado.ToString("n0");
+                        }
+                        SingletonChar.singleton.text = "";
+                    }
+                }
+                else if (SingletonChar.singleton.signo == "")
+                {
+                    lblResultado.Text = textBox1.Text + " = ";
+                    textBox1.Text = textBox1.Text;
+                }
+            }
+            else
+            {
+                if (String.IsNullOrWhiteSpace(textBox1.Text))
+                {
+                    MessageBox.Show("Escribe un numero para la operacion", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (SingletonChar.singleton.signo == "÷" && textBox1.Text == "0")
+                {
+                    textBox1.Text = "No se puede dividir entre cero";
+                    button38.Text = charact.CE(textBox1.Text);
+                }
+                else if (SingletonChar.singleton.SaveNumber != 0)
+                {
+                    if (SingletonChar.singleton.Btnresultado == true)
+                    {
+                        SingletonChar.singleton.SaveNumber = Convert.ToDecimal(textBox1.Text);
+                        SingletonChar.singleton.Btnresultado = true;
+                        lblResultado.Text = $"{SingletonChar.singleton.SaveNumber}{SingletonChar.singleton.signo}";
+                        lblResultado.Visible = true;
+                        SingletonChar.singleton.text = "";
+                        lblResultado.Text = $"{textBox1.Text} {SingletonChar.singleton.signo} {SingletonChar.singleton.LastNumber} =";
+                        if (Convert.ToString(op.BasicOperation(Convert.ToDecimal(textBox1.Text))).Contains('.'))
+                        {
+                            textBox1.Text = op.BasicOperation(Convert.ToDecimal(SingletonChar.singleton.LastNumber)).ToString();
+                        }
+                        else
+                        {
+                            textBox1.Text = op.BasicOperation(Convert.ToDecimal(SingletonChar.singleton.LastNumber)).ToString("n0");
+                        }
+                        SingletonChar.singleton.text = "";
+                    }
+                    else
+                    {
+                        if (SingletonChar.singleton.LastNumber == 0)
+                        {
+                            SingletonChar.singleton.LastNumber = Convert.ToDecimal(textBox1.Text);
+                        }
+                        SingletonChar.singleton.Btnresultado = true;
+                        if (lblResultado.Text.Contains('('))
+                        {
+                            lblResultado.Text = $"({SingletonChar.singleton.SaveNumber} {SingletonChar.singleton.signo}";
+                        }
+                        else
+                        {
+                            lblResultado.Text = $"{SingletonChar.singleton.SaveNumber} {SingletonChar.singleton.signo}";
+                        }
+                        lblResultado.Visible = true;
+                        SingletonChar.singleton.text = "";
+                        if (lblResultado.Text.Contains('('))
+                        {
+                            lblResultado.Text = $"({SingletonChar.singleton.SaveNumber} {SingletonChar.singleton.signo} {SingletonChar.singleton.LastNumber}) =";
+                        }
+                        else
+                        {
+                            lblResultado.Text = $"{SingletonChar.singleton.SaveNumber} {SingletonChar.singleton.signo} {SingletonChar.singleton.LastNumber} =";
+                        }
+                        if (Convert.ToString(op.BasicOperation(Convert.ToDecimal(textBox1.Text))).Contains('.'))
+                        {
+                            SingletonChar.singleton.resultado = op.BasicOperation(Convert.ToDecimal(textBox1.Text));
+                            textBox1.Text = SingletonChar.singleton.resultado.ToString();
+                        }
+                        else
+                        {
+                            SingletonChar.singleton.resultado = op.BasicOperation(Convert.ToDecimal(textBox1.Text));
+                            textBox1.Text = SingletonChar.singleton.resultado.ToString("n0");
+                        }
+                        SingletonChar.singleton.text = "";
+                    }
+                }
+                else if (SingletonChar.singleton.func == "")
+                {
+                    lblResultado.Text = textBox1.Text + " = ";
+                    textBox1.Text = textBox1.Text;
+                }
+            }
+        }
+
+        private void Advanced_Click(object sender, EventArgs e)
+        {
+            func = true;
+            Button b = (Button)sender;
+            SingletonChar.singleton.func = b.Text;
+            if (SingletonChar.singleton.Btnresultado)
+            {
+                SingletonChar.singleton.LastNumber = 0;
+                SingletonChar.singleton.SaveNumber = Convert.ToDecimal(textBox1.Text);
+                SingletonChar.singleton.Btnresultado = false;
+                SingletonChar.singleton.signo = Convert.ToString(b.Text);
+                lblResultado.Text = $"{SingletonChar.singleton.SaveNumber} {SingletonChar.singleton.signo}";
+            }
+            else
+            {
+                SingletonChar.singleton.signo = Convert.ToString(b.Text);
+                SingletonChar.singleton.SaveNumber = Convert.ToDecimal(textBox1.Text);
+                lblResultado.Text = $"{SingletonChar.singleton.SaveNumber} {SingletonChar.singleton.signo}";
+                lblResultado.Visible = true;
+                SingletonChar.singleton.text = "";
+                textBox1.Clear();
+            }
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            Button ap = (Button)sender;
+            SingletonChar.singleton.func = ap.Text;
+
+            textBox1.Text = op.AdvancedOperation(Convert.ToDecimal(textBox1.Text));
+        }
+
+        private void button36_Click(object sender, EventArgs e)
+        {
+            Button ap = (Button)sender;
+            SingletonChar.singleton.func = ap.Text;
+            if (Convert.ToDecimal(textBox1.Text) < 0)
+            {
+                lblResultado.Text = $"fact({textBox1.Text})";
+                Console.WriteLine("Entrada no válida");
+            }
+            else
+            {
+                lblResultado.Text = $"fact({textBox1.Text})";
+                if (op.ComplexCalc(SingletonChar.singleton.func, Convert.ToDecimal(textBox1.Text)).ToString().Length > 30)
+                {
+                    textBox1.Text = op.ComplexCalc(SingletonChar.singleton.func, Convert.ToDecimal(textBox1.Text)).ToString("e23");
+                }
+                else
+                {
+                    textBox1.Text = op.ComplexCalc(SingletonChar.singleton.func, Convert.ToDecimal(textBox1.Text)).ToString();
+                }
+                SingletonChar.singleton.text = "";
+            }
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToDecimal(textBox1.Text) != 0 || String.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                if (lblResultado.Text.Contains('('))
+                {
+
+                }
+                else
+                {
+                    if (lblResultado.Text.Length > 0)
+                    {
+                        lblResultado.Text = $"({lblResultado.Text}";
+                    }
+                    else
+                    {
+                        lblResultado.Text = $"({textBox1.Text}";
+                    }
+                }
+            }
+        }
+
+        private void button29_Click(object sender, EventArgs e)
+        {
+            if (lblResultado.Text.Contains('('))
+            {
+                if (lblResultado.Text.Contains(')'))
+                {
+
+                }
+                else
+                {
+
+                    lblResultado.Text = $"{lblResultado.Text} {textBox1.Text})";
+                }
+            }
+            else
+            {
+            }
+        }
+
+        private void button37_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button30_Click(object sender, EventArgs e)
+        {
+            Button ap = (Button)sender;
+            SingletonChar.singleton.func = ap.Text;
+            lblResultado.Text = $"abs({textBox1.Text})";
+            textBox1.Text = op.AdvancedOperation(Convert.ToDecimal(textBox1.Text));
+            button38.Text = charact.CE(textBox1.Text);
+            SingletonChar.singleton.text = "";
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            Button ap = (Button)sender;
+            SingletonChar.singleton.func = ap.Text;
+            SingletonChar.singleton.text = op.AdvancedOperation(Convert.ToDecimal(0)); ;
+            textBox1.Text = SingletonChar.singleton.text;
+            button38.Text = charact.CE(textBox1.Text);
+            SingletonChar.singleton.fue1sobrex = true;
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToDecimal(textBox1.Text) == 0 || String.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                textBox1.Text = "No se puede dividir entre cero";
+                button38.Text = charact.CE(textBox1.Text);
+            }
+            else
+            {
+                Button ap = (Button)sender;
+                SingletonChar.singleton.func = ap.Text;
+                lblResultado.Text = $"1/{textBox1.Text}";
+                SingletonChar.singleton.text = op.AdvancedOperation(Convert.ToDecimal(textBox1.Text)); ;
+                textBox1.Text = SingletonChar.singleton.text;
+                button38.Text = charact.CE(textBox1.Text);
+                SingletonChar.singleton.fue1sobrex = true;
+            }
+        }
+
+        private void button45_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length - 1 > 0 || SingletonChar.singleton.text.Length - 1 > 0)
+            {
+                if (SingletonChar.singleton.text.Length - 1 > 0)
+                {
+                    SingletonChar.singleton.text = SingletonChar.singleton.text.Remove(SingletonChar.singleton.text.Length - 1, 1);
+                }
+                textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1, 1);
+                button38.Text = charact.CE(textBox1.Text);
+            }
+
+            if (textBox1.Text == "")
+            {
+                textBox1.Text = "0";
+            }
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            Button ap = (Button)sender;
+            SingletonChar.singleton.func = ap.Text;
+            SingletonChar.singleton.text = op.AdvancedOperation(Convert.ToDecimal(0)); ;
+            textBox1.Text = SingletonChar.singleton.text;
+            button38.Text = charact.CE(textBox1.Text);
+            SingletonChar.singleton.fue1sobrex = true;
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            Button ap = (Button)sender;
+
+            if (this.button12.Image.FrameDimensionsList[0] == Properties.Resources.x_2.FrameDimensionsList[0])
+            {
+                SingletonChar.singleton.func = "x^2";
+                lblResultado.Text = $"sqr({textBox1.Text})";
+                if (op.ComplexCalc(SingletonChar.singleton.func, Convert.ToDecimal(textBox1.Text)).ToString().Length > 30)
+                {
+                    textBox1.Text = op.ComplexCalc(SingletonChar.singleton.func, Convert.ToDecimal(textBox1.Text)).ToString("e23");
+                }
+                else
+                {
+                    textBox1.Text = op.ComplexCalc(SingletonChar.singleton.func, Convert.ToDecimal(textBox1.Text)).ToString("n0");
+                }
+                SingletonChar.singleton.text = "";
+            }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            if (this.button13.Image.FrameDimensionsList[0] == Properties.Resources.sqrt_x_.FrameDimensionsList[0])
+            {
+                if (Convert.ToDecimal(textBox1.Text) < 0)
+                {
+                    textBox1.Text = "Entrada no válida";
+                    button38.Text = charact.CE(textBox1.Text);
+                }
+                else
+                {
+                    SingletonChar.singleton.func = "sqrt";
+                    lblResultado.Text = $"sqrt({textBox1.Text})";
+                    if (op.AdvancedOperation(Convert.ToDecimal(textBox1.Text)).ToString().Length > 30)
+                    {
+                        textBox1.Text = op.AdvancedOperation(Convert.ToDecimal(textBox1.Text));
+                    }
+                    else
+                    {
+                        textBox1.Text = op.AdvancedOperation(Convert.ToDecimal(textBox1.Text));
+                    }
+                    SingletonChar.singleton.text = "";
+                }
+            }
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            func = true;
+            Button b = (Button)sender;
+            SingletonChar.singleton.func = b.Text;
+            if (SingletonChar.singleton.Btnresultado)
+            {
+                SingletonChar.singleton.LastNumber = 0;
+                SingletonChar.singleton.SaveNumber = Convert.ToDecimal(textBox1.Text);
+                SingletonChar.singleton.Btnresultado = false;
+                SingletonChar.singleton.func = "^";
+                SingletonChar.singleton.signo = "^";
+                lblResultado.Text = $"{SingletonChar.singleton.SaveNumber} {SingletonChar.singleton.func}";
+            }
+            else
+            {
+                SingletonChar.singleton.func = "^";
+                SingletonChar.singleton.signo = "^";
+                SingletonChar.singleton.SaveNumber = Convert.ToDecimal(textBox1.Text);
+                lblResultado.Text = $"{SingletonChar.singleton.SaveNumber} {SingletonChar.singleton.func}";
+                lblResultado.Visible = true;
+                SingletonChar.singleton.text = "";
+                textBox1.Clear();
+            }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            SingletonChar.singleton.func = "10^x";
+            lblResultado.Text = $"10^({textBox1.Text})";
+
+            textBox1.Text = $"{op.AdvancedOperation(Convert.ToDecimal(textBox1.Text))}";
+            SingletonChar.singleton.text = "";
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToDecimal(textBox1.Text) < 0)
+            {
+                textBox1.Text = "Entrada no válida";
+                button38.Text = charact.CE(textBox1.Text);
+            }
+            else
+            {
+                SingletonChar.singleton.func = "log10";
+                lblResultado.Text = $"log({textBox1.Text})";
+                if (op.AdvancedOperation(Convert.ToDecimal(textBox1.Text)).ToString().Length > 30)
+                {
+                    textBox1.Text = op.AdvancedOperation(Convert.ToDecimal(textBox1.Text));
+                }
+                else
+                {
+                    textBox1.Text = op.AdvancedOperation(Convert.ToDecimal(textBox1.Text));
+                }
+                SingletonChar.singleton.text = "";
+            }
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToDecimal(textBox1.Text) < 0)
+            {
+                textBox1.Text = "Entrada no válida";
+                button38.Text = charact.CE(textBox1.Text);
+            }
+            else
+            {
+                SingletonChar.singleton.func = "ln";
+                lblResultado.Text = $"ln({textBox1.Text})";
+                if (op.AdvancedOperation(Convert.ToDecimal(textBox1.Text)).ToString().Length > 30)
+                {
+                    textBox1.Text = op.AdvancedOperation(Convert.ToDecimal(textBox1.Text));
+                }
+                else
+                {
+                    textBox1.Text = op.AdvancedOperation(Convert.ToDecimal(textBox1.Text));
+                }
+                SingletonChar.singleton.text = "";
+            }
+        }
+
         // Design By Jean Carlos Reyes
     }
 }

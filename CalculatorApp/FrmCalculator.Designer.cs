@@ -31,6 +31,7 @@ namespace CalculatorApp
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblResultado = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
@@ -96,6 +97,7 @@ namespace CalculatorApp
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblResultado);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.button7);
@@ -110,13 +112,23 @@ namespace CalculatorApp
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-1, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(525, 183);
+            this.panel1.Size = new System.Drawing.Size(535, 183);
             this.panel1.TabIndex = 0;
+            // 
+            // lblResultado
+            // 
+            this.lblResultado.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblResultado.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblResultado.Location = new System.Drawing.Point(224, 29);
+            this.lblResultado.Name = "lblResultado";
+            this.lblResultado.Size = new System.Drawing.Size(308, 21);
+            this.lblResultado.TabIndex = 22;
+            this.lblResultado.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::CalculatorApp.Properties.Resources.history1;
-            this.pictureBox3.Location = new System.Drawing.Point(492, 11);
+            this.pictureBox3.Location = new System.Drawing.Point(492, 3);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(22, 25);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -148,8 +160,8 @@ namespace CalculatorApp
             this.button7.TabIndex = 19;
             this.button7.Text = "F-E";
             this.button7.UseVisualStyleBackColor = false;
-            this.button7.MouseLeave += new System.EventHandler(this.button7_MouseLeave);
-            this.button7.MouseHover += new System.EventHandler(this.button7_MouseHover);
+            this.button7.MouseLeave += new System.EventHandler(this.General2_MouseLeave);
+            this.button7.MouseHover += new System.EventHandler(this.General2_MouseHover);
             // 
             // button8
             // 
@@ -166,8 +178,8 @@ namespace CalculatorApp
             this.button8.TabIndex = 18;
             this.button8.Text = "DEG";
             this.button8.UseVisualStyleBackColor = false;
-            this.button8.MouseLeave += new System.EventHandler(this.button8_MouseLeave);
-            this.button8.MouseHover += new System.EventHandler(this.button8_MouseHover);
+            this.button8.MouseLeave += new System.EventHandler(this.General2_MouseLeave);
+            this.button8.MouseHover += new System.EventHandler(this.General2_MouseHover);
             // 
             // button6
             // 
@@ -185,8 +197,8 @@ namespace CalculatorApp
             this.button6.TabIndex = 17;
             this.button6.Text = "M▼";
             this.button6.UseVisualStyleBackColor = false;
-            this.button6.MouseLeave += new System.EventHandler(this.button6_MouseLeave);
-            this.button6.MouseHover += new System.EventHandler(this.button6_MouseHover);
+            this.button6.MouseLeave += new System.EventHandler(this.General1_MouseLeave);
+            this.button6.MouseHover += new System.EventHandler(this.General1_MouseHover);
             // 
             // button5
             // 
@@ -203,8 +215,8 @@ namespace CalculatorApp
             this.button5.TabIndex = 16;
             this.button5.Text = "MS";
             this.button5.UseVisualStyleBackColor = false;
-            this.button5.MouseLeave += new System.EventHandler(this.button5_MouseLeave);
-            this.button5.MouseHover += new System.EventHandler(this.button5_MouseHover);
+            this.button5.MouseLeave += new System.EventHandler(this.General1_MouseLeave);
+            this.button5.MouseHover += new System.EventHandler(this.General1_MouseHover);
             // 
             // button4
             // 
@@ -220,8 +232,8 @@ namespace CalculatorApp
             this.button4.TabIndex = 15;
             this.button4.Text = "M-";
             this.button4.UseVisualStyleBackColor = false;
-            this.button4.MouseLeave += new System.EventHandler(this.button4_MouseLeave);
-            this.button4.MouseHover += new System.EventHandler(this.button4_MouseHover);
+            this.button4.MouseLeave += new System.EventHandler(this.General1_MouseLeave);
+            this.button4.MouseHover += new System.EventHandler(this.General1_MouseHover);
             // 
             // button3
             // 
@@ -238,8 +250,8 @@ namespace CalculatorApp
             this.button3.TabIndex = 14;
             this.button3.Text = "M+";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.MouseLeave += new System.EventHandler(this.button3_MouseLeave);
-            this.button3.MouseHover += new System.EventHandler(this.button3_MouseHover);
+            this.button3.MouseLeave += new System.EventHandler(this.General1_MouseLeave);
+            this.button3.MouseHover += new System.EventHandler(this.General1_MouseHover);
             // 
             // button2
             // 
@@ -257,8 +269,8 @@ namespace CalculatorApp
             this.button2.TabIndex = 13;
             this.button2.Text = "MR";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.MouseLeave += new System.EventHandler(this.button2_MouseLeave);
-            this.button2.MouseHover += new System.EventHandler(this.button2_MouseHover);
+            this.button2.MouseLeave += new System.EventHandler(this.General1_MouseLeave);
+            this.button2.MouseHover += new System.EventHandler(this.General1_MouseHover);
             // 
             // button1
             // 
@@ -276,22 +288,23 @@ namespace CalculatorApp
             this.button1.TabIndex = 12;
             this.button1.Text = "MC";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
-            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
+            this.button1.MouseLeave += new System.EventHandler(this.General1_MouseLeave);
+            this.button1.MouseHover += new System.EventHandler(this.General1_MouseHover);
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(4, 51);
+            this.textBox1.Location = new System.Drawing.Point(4, 53);
             this.textBox1.MaxLength = 29;
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(518, 59);
+            this.textBox1.Size = new System.Drawing.Size(528, 59);
             this.textBox1.TabIndex = 11;
             this.textBox1.Text = "0";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label1
             // 
@@ -312,7 +325,7 @@ namespace CalculatorApp
             this.panel2.Controls.Add(this.button9);
             this.panel2.Location = new System.Drawing.Point(-1, 211);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(525, 42);
+            this.panel2.Size = new System.Drawing.Size(535, 42);
             this.panel2.TabIndex = 1;
             // 
             // pictureBox2
@@ -390,9 +403,9 @@ namespace CalculatorApp
             this.button11.Size = new System.Drawing.Size(101, 35);
             this.button11.TabIndex = 2;
             this.button11.UseVisualStyleBackColor = false;
-            this.button11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button11_MouseDown);
-            this.button11.MouseLeave += new System.EventHandler(this.button11_MouseLeave);
-            this.button11.MouseHover += new System.EventHandler(this.button11_MouseHover);
+            this.button11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button11.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button11.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button12
             // 
@@ -408,9 +421,10 @@ namespace CalculatorApp
             this.button12.Size = new System.Drawing.Size(101, 35);
             this.button12.TabIndex = 3;
             this.button12.UseVisualStyleBackColor = false;
-            this.button12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button12_MouseDown);
-            this.button12.MouseLeave += new System.EventHandler(this.button12_MouseLeave);
-            this.button12.MouseHover += new System.EventHandler(this.button12_MouseHover);
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.button12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button12.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button12.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button13
             // 
@@ -426,9 +440,10 @@ namespace CalculatorApp
             this.button13.Size = new System.Drawing.Size(101, 35);
             this.button13.TabIndex = 4;
             this.button13.UseVisualStyleBackColor = false;
-            this.button13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button13_MouseDown);
-            this.button13.MouseLeave += new System.EventHandler(this.button13_MouseLeave);
-            this.button13.MouseHover += new System.EventHandler(this.button13_MouseHover);
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.button13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button13.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button13.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button14
             // 
@@ -444,9 +459,10 @@ namespace CalculatorApp
             this.button14.Size = new System.Drawing.Size(101, 35);
             this.button14.TabIndex = 5;
             this.button14.UseVisualStyleBackColor = false;
-            this.button14.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button14_MouseDown);
-            this.button14.MouseLeave += new System.EventHandler(this.button14_MouseLeave);
-            this.button14.MouseHover += new System.EventHandler(this.button14_MouseHover);
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            this.button14.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button14.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button14.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button15
             // 
@@ -462,9 +478,10 @@ namespace CalculatorApp
             this.button15.Size = new System.Drawing.Size(101, 35);
             this.button15.TabIndex = 6;
             this.button15.UseVisualStyleBackColor = false;
-            this.button15.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button15_MouseDown);
-            this.button15.MouseLeave += new System.EventHandler(this.button15_MouseLeave);
-            this.button15.MouseHover += new System.EventHandler(this.button15_MouseHover);
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            this.button15.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button15.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button15.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button16
             // 
@@ -481,9 +498,10 @@ namespace CalculatorApp
             this.button16.TabIndex = 7;
             this.button16.Text = "log";
             this.button16.UseVisualStyleBackColor = false;
-            this.button16.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button16_MouseDown);
-            this.button16.MouseLeave += new System.EventHandler(this.button16_MouseLeave);
-            this.button16.MouseHover += new System.EventHandler(this.button16_MouseHover);
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            this.button16.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button16.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button16.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button17
             // 
@@ -500,9 +518,10 @@ namespace CalculatorApp
             this.button17.TabIndex = 8;
             this.button17.Text = "ln";
             this.button17.UseVisualStyleBackColor = false;
-            this.button17.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button17_MouseDown);
-            this.button17.MouseLeave += new System.EventHandler(this.button17_MouseLeave);
-            this.button17.MouseHover += new System.EventHandler(this.button17_MouseHover);
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            this.button17.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button17.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button17.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button18
             // 
@@ -518,6 +537,7 @@ namespace CalculatorApp
             this.button18.TabIndex = 15;
             this.button18.Text = "+/_";
             this.button18.UseVisualStyleBackColor = false;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // button19
             // 
@@ -582,9 +602,10 @@ namespace CalculatorApp
             this.button22.TabIndex = 11;
             this.button22.Text = "(";
             this.button22.UseVisualStyleBackColor = false;
-            this.button22.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button22_MouseDown);
-            this.button22.MouseLeave += new System.EventHandler(this.button22_MouseLeave);
-            this.button22.MouseHover += new System.EventHandler(this.button22_MouseHover);
+            this.button22.Click += new System.EventHandler(this.button22_Click);
+            this.button22.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button22.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button22.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button23
             // 
@@ -601,9 +622,10 @@ namespace CalculatorApp
             this.button23.TabIndex = 10;
             this.button23.Text = "1/x";
             this.button23.UseVisualStyleBackColor = false;
-            this.button23.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
-            this.button23.MouseLeave += new System.EventHandler(this.button23_MouseLeave);
-            this.button23.MouseHover += new System.EventHandler(this.button23_MouseHover);
+            this.button23.Click += new System.EventHandler(this.button23_Click);
+            this.button23.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button23.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button23.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button24
             // 
@@ -620,9 +642,10 @@ namespace CalculatorApp
             this.button24.TabIndex = 9;
             this.button24.Text = "𝝿";
             this.button24.UseVisualStyleBackColor = false;
-            this.button24.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button24_MouseDown);
-            this.button24.MouseLeave += new System.EventHandler(this.button24_MouseLeave);
-            this.button24.MouseHover += new System.EventHandler(this.button24_MouseHover);
+            this.button24.Click += new System.EventHandler(this.button24_Click);
+            this.button24.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button24.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button24.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button25
             // 
@@ -703,9 +726,10 @@ namespace CalculatorApp
             this.button29.TabIndex = 18;
             this.button29.Text = ")";
             this.button29.UseVisualStyleBackColor = false;
-            this.button29.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button29_MouseDown);
-            this.button29.MouseLeave += new System.EventHandler(this.button29_MouseLeave);
-            this.button29.MouseHover += new System.EventHandler(this.button29_MouseHover);
+            this.button29.Click += new System.EventHandler(this.button29_Click);
+            this.button29.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button29.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button29.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button30
             // 
@@ -722,9 +746,10 @@ namespace CalculatorApp
             this.button30.TabIndex = 17;
             this.button30.Text = "|x|";
             this.button30.UseVisualStyleBackColor = false;
-            this.button30.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button30_MouseDown);
-            this.button30.MouseLeave += new System.EventHandler(this.button30_MouseLeave);
-            this.button30.MouseHover += new System.EventHandler(this.button30_MouseHover);
+            this.button30.Click += new System.EventHandler(this.button30_Click);
+            this.button30.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button30.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button30.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button31
             // 
@@ -741,9 +766,10 @@ namespace CalculatorApp
             this.button31.TabIndex = 16;
             this.button31.Text = "e";
             this.button31.UseVisualStyleBackColor = false;
-            this.button31.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button31_MouseDown);
-            this.button31.MouseLeave += new System.EventHandler(this.button31_MouseLeave);
-            this.button31.MouseHover += new System.EventHandler(this.button31_MouseHover);
+            this.button31.Click += new System.EventHandler(this.button31_Click);
+            this.button31.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button31.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button31.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button32
             // 
@@ -824,9 +850,10 @@ namespace CalculatorApp
             this.button36.TabIndex = 25;
             this.button36.Text = "n!";
             this.button36.UseVisualStyleBackColor = false;
-            this.button36.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button36_MouseDown);
-            this.button36.MouseLeave += new System.EventHandler(this.button36_MouseLeave);
-            this.button36.MouseHover += new System.EventHandler(this.button36_MouseHover);
+            this.button36.Click += new System.EventHandler(this.button36_Click);
+            this.button36.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button36.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button36.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button37
             // 
@@ -843,9 +870,10 @@ namespace CalculatorApp
             this.button37.TabIndex = 24;
             this.button37.Text = "exp";
             this.button37.UseVisualStyleBackColor = false;
-            this.button37.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button37_MouseDown);
-            this.button37.MouseLeave += new System.EventHandler(this.button37_MouseLeave);
-            this.button37.MouseHover += new System.EventHandler(this.button37_MouseHover);
+            this.button37.Click += new System.EventHandler(this.button37_Click);
+            this.button37.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button37.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button37.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button38
             // 
@@ -863,9 +891,9 @@ namespace CalculatorApp
             this.button38.Text = "C";
             this.button38.UseVisualStyleBackColor = false;
             this.button38.Click += new System.EventHandler(this.button38_Click);
-            this.button38.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button38_MouseDown);
-            this.button38.MouseLeave += new System.EventHandler(this.button38_MouseLeave);
-            this.button38.MouseHover += new System.EventHandler(this.button38_MouseHover);
+            this.button38.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button38.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button38.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button39
             // 
@@ -882,9 +910,10 @@ namespace CalculatorApp
             this.button39.TabIndex = 36;
             this.button39.Text = "=";
             this.button39.UseVisualStyleBackColor = false;
-            this.button39.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button39_MouseDown);
-            this.button39.MouseLeave += new System.EventHandler(this.button39_MouseLeave);
-            this.button39.MouseHover += new System.EventHandler(this.button39_MouseHover);
+            this.button39.Click += new System.EventHandler(this.button39_Click);
+            this.button39.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button39.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button39.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button40
             // 
@@ -901,9 +930,10 @@ namespace CalculatorApp
             this.button40.TabIndex = 35;
             this.button40.Text = "+";
             this.button40.UseVisualStyleBackColor = false;
-            this.button40.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button40_MouseDown);
-            this.button40.MouseLeave += new System.EventHandler(this.button40_MouseLeave);
-            this.button40.MouseHover += new System.EventHandler(this.button40_MouseHover);
+            this.button40.Click += new System.EventHandler(this.Signo_Click);
+            this.button40.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button40.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button40.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button41
             // 
@@ -920,9 +950,10 @@ namespace CalculatorApp
             this.button41.TabIndex = 34;
             this.button41.Text = "-";
             this.button41.UseVisualStyleBackColor = false;
-            this.button41.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button41_MouseDown);
-            this.button41.MouseLeave += new System.EventHandler(this.button41_MouseLeave);
-            this.button41.MouseHover += new System.EventHandler(this.button41_MouseHover);
+            this.button41.Click += new System.EventHandler(this.Signo_Click);
+            this.button41.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button41.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button41.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button42
             // 
@@ -939,9 +970,10 @@ namespace CalculatorApp
             this.button42.TabIndex = 33;
             this.button42.Text = "×";
             this.button42.UseVisualStyleBackColor = false;
-            this.button42.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button42_MouseDown);
-            this.button42.MouseLeave += new System.EventHandler(this.button42_MouseLeave);
-            this.button42.MouseHover += new System.EventHandler(this.button42_MouseHover);
+            this.button42.Click += new System.EventHandler(this.Signo_Click);
+            this.button42.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button42.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button42.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button43
             // 
@@ -958,9 +990,10 @@ namespace CalculatorApp
             this.button43.TabIndex = 32;
             this.button43.Text = "÷";
             this.button43.UseVisualStyleBackColor = false;
-            this.button43.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button43_MouseDown);
-            this.button43.MouseLeave += new System.EventHandler(this.button43_MouseLeave);
-            this.button43.MouseHover += new System.EventHandler(this.button43_MouseHover);
+            this.button43.Click += new System.EventHandler(this.Signo_Click);
+            this.button43.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button43.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button43.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button44
             // 
@@ -977,9 +1010,10 @@ namespace CalculatorApp
             this.button44.TabIndex = 31;
             this.button44.Text = "mod";
             this.button44.UseVisualStyleBackColor = false;
-            this.button44.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button44_MouseDown);
-            this.button44.MouseLeave += new System.EventHandler(this.button44_MouseLeave);
-            this.button44.MouseHover += new System.EventHandler(this.button44_MouseHover);
+            this.button44.Click += new System.EventHandler(this.Advanced_Click);
+            this.button44.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button44.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button44.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // button45
             // 
@@ -996,9 +1030,10 @@ namespace CalculatorApp
             this.button45.TabIndex = 30;
             this.button45.Text = "⌫";
             this.button45.UseVisualStyleBackColor = false;
-            this.button45.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button45_MouseDown);
-            this.button45.MouseLeave += new System.EventHandler(this.button45_MouseLeave);
-            this.button45.MouseHover += new System.EventHandler(this.button45_MouseHover);
+            this.button45.Click += new System.EventHandler(this.button45_Click);
+            this.button45.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
+            this.button45.MouseLeave += new System.EventHandler(this.General_MouseLeave);
+            this.button45.MouseHover += new System.EventHandler(this.General_MouseHover);
             // 
             // panel3
             // 
@@ -1006,7 +1041,7 @@ namespace CalculatorApp
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(-1, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(525, 30);
+            this.panel3.Size = new System.Drawing.Size(535, 30);
             this.panel3.TabIndex = 22;
             // 
             // button46
@@ -1014,7 +1049,7 @@ namespace CalculatorApp
             this.button46.FlatAppearance.BorderSize = 0;
             this.button46.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button46.Image = global::CalculatorApp.Properties.Resources.cross;
-            this.button46.Location = new System.Drawing.Point(499, 3);
+            this.button46.Location = new System.Drawing.Point(509, 3);
             this.button46.Name = "button46";
             this.button46.Size = new System.Drawing.Size(21, 24);
             this.button46.TabIndex = 1;
@@ -1038,7 +1073,7 @@ namespace CalculatorApp
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
-            this.ClientSize = new System.Drawing.Size(524, 539);
+            this.ClientSize = new System.Drawing.Size(534, 539);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.button39);
             this.Controls.Add(this.button40);
@@ -1150,6 +1185,7 @@ namespace CalculatorApp
         private System.Windows.Forms.Button button46;
         public System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.Button button38;
+        private System.Windows.Forms.Label lblResultado;
 
         // Design By Jean Carlos Reyes
     }
