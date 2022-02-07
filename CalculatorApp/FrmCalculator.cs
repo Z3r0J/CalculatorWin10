@@ -15,6 +15,7 @@ namespace CalculatorApp
         private CharacterLogic charact;
         OperationClass op = new OperationClass();
         bool func = false;
+        bool delete = false;
         public FrmCalculator()
         {
             InitializeComponent();
@@ -401,7 +402,7 @@ namespace CalculatorApp
             {
                 textBox1.Clear();
                 SingletonChar.singleton.text = "";
-                textBox1.Text = charact.AddCharacter('2', textBox1.Text).ToString("n0");
+                textBox1.Text = charact.AddCharacter('0', textBox1.Text).ToString("n0");
                 SingletonChar.singleton.fue1sobrex = false;
             }
             else if (charact.PointExist('.', textBox1.Text))
@@ -442,7 +443,7 @@ namespace CalculatorApp
 
         private void button38_Click(object sender, EventArgs e)
         {
-            if (button38.Text == "CE")
+            if (button38.Text == "CE" || delete)
             {
                 SingletonChar.singleton.text = "";
                 SingletonChar.singleton.signo = "";
@@ -808,9 +809,9 @@ namespace CalculatorApp
 
         private void button45_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length - 1 > 0 || SingletonChar.singleton.text.Length - 1 > 0)
+            if (textBox1.Text.Length - 1 >= 0 || SingletonChar.singleton.text.Length - 1 >= 0)
             {
-                if (SingletonChar.singleton.text.Length - 1 > 0)
+                if (SingletonChar.singleton.text.Length - 1 >= 0)
                 {
                     SingletonChar.singleton.text = SingletonChar.singleton.text.Remove(SingletonChar.singleton.text.Length - 1, 1);
                 }
@@ -971,6 +972,60 @@ namespace CalculatorApp
                 }
                 SingletonChar.singleton.text = "";
             }
+        }
+        private void Atajos_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Multiply)
+                    button42.PerformClick();
+                else if (e.KeyCode == Keys.Delete)
+                {
+                    delete = true;
+                    button38.PerformClick();
+                }
+                else if (e.KeyCode == Keys.Clear || e.KeyCode == Keys.C)
+                {
+                    delete = true;
+                    button38.PerformClick();
+                }
+                else if (e.KeyCode == Keys.Back)
+                    button45.PerformClick();
+                else if (e.KeyCode == Keys.Add)
+                    button40.PerformClick();
+                else if (e.KeyCode == Keys.Subtract)
+                    button41.PerformClick();
+                else if (e.KeyCode == Keys.Divide)
+                    button43.PerformClick();
+                else if (e.KeyCode == Keys.Enter)
+                    button39.PerformClick();
+                else if (e.KeyCode == Keys.D0 || e.KeyCode == Keys.NumPad0)
+                    button25.PerformClick();
+                else if (e.KeyCode == Keys.D1 || e.KeyCode == Keys.NumPad1)
+                    button19.PerformClick();
+                else if (e.KeyCode == Keys.D2 || e.KeyCode == Keys.NumPad2)
+                    button26.PerformClick();
+                else if (e.KeyCode == Keys.D3 || e.KeyCode == Keys.NumPad3)
+                    button33.PerformClick();
+                else if (e.KeyCode == Keys.D4 || e.KeyCode == Keys.NumPad4)
+                    button20.PerformClick();
+                else if (e.KeyCode == Keys.D5 || e.KeyCode == Keys.NumPad5)
+                    button27.PerformClick();
+                else if (e.KeyCode == Keys.D6 || e.KeyCode == Keys.NumPad6)
+                    button34.PerformClick();
+                else if (e.KeyCode == Keys.D7 || e.KeyCode == Keys.NumPad7)
+                    button21.PerformClick();
+                else if (e.KeyCode == Keys.D8 || e.KeyCode == Keys.NumPad8)
+                    button28.PerformClick();
+                else if (e.KeyCode == Keys.D9 || e.KeyCode == Keys.NumPad9)
+                    button35.PerformClick();
+                else if (e.KeyCode == Keys.Decimal)
+                    button32.PerformClick();
+            }
+            catch (Exception ex)
+            {
+            }
+
         }
 
         // Design By Jean Carlos Reyes

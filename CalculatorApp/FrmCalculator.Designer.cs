@@ -554,6 +554,7 @@ namespace CalculatorApp
             this.button19.Text = "1";
             this.button19.UseVisualStyleBackColor = false;
             this.button19.Click += new System.EventHandler(this.button19_Click);
+            this.button19.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Atajos_KeyDown);
             // 
             // button20
             // 
@@ -570,6 +571,7 @@ namespace CalculatorApp
             this.button20.Text = "4";
             this.button20.UseVisualStyleBackColor = false;
             this.button20.Click += new System.EventHandler(this.button20_Click);
+            this.button20.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Atajos_KeyDown);
             // 
             // button21
             // 
@@ -586,6 +588,7 @@ namespace CalculatorApp
             this.button21.Text = "7";
             this.button21.UseVisualStyleBackColor = false;
             this.button21.Click += new System.EventHandler(this.button21_Click);
+            this.button21.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Atajos_KeyDown);
             // 
             // button22
             // 
@@ -662,6 +665,7 @@ namespace CalculatorApp
             this.button25.Text = "0";
             this.button25.UseVisualStyleBackColor = false;
             this.button25.Click += new System.EventHandler(this.button25_Click);
+            this.button25.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Atajos_KeyDown);
             // 
             // button26
             // 
@@ -678,6 +682,7 @@ namespace CalculatorApp
             this.button26.Text = "2";
             this.button26.UseVisualStyleBackColor = false;
             this.button26.Click += new System.EventHandler(this.button26_Click);
+            this.button26.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Atajos_KeyDown);
             // 
             // button27
             // 
@@ -694,6 +699,7 @@ namespace CalculatorApp
             this.button27.Text = "5";
             this.button27.UseVisualStyleBackColor = false;
             this.button27.Click += new System.EventHandler(this.button27_Click);
+            this.button27.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Atajos_KeyDown);
             // 
             // button28
             // 
@@ -710,6 +716,7 @@ namespace CalculatorApp
             this.button28.Text = "8";
             this.button28.UseVisualStyleBackColor = false;
             this.button28.Click += new System.EventHandler(this.button28_Click);
+            this.button28.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Atajos_KeyDown);
             // 
             // button29
             // 
@@ -786,6 +793,7 @@ namespace CalculatorApp
             this.button32.Text = ".";
             this.button32.UseVisualStyleBackColor = false;
             this.button32.Click += new System.EventHandler(this.button32_Click);
+            this.button32.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Atajos_KeyDown);
             // 
             // button33
             // 
@@ -802,6 +810,7 @@ namespace CalculatorApp
             this.button33.Text = "3";
             this.button33.UseVisualStyleBackColor = false;
             this.button33.Click += new System.EventHandler(this.button33_Click);
+            this.button33.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Atajos_KeyDown);
             // 
             // button34
             // 
@@ -818,6 +827,7 @@ namespace CalculatorApp
             this.button34.Text = "6";
             this.button34.UseVisualStyleBackColor = false;
             this.button34.Click += new System.EventHandler(this.button34_Click);
+            this.button34.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Atajos_KeyDown);
             // 
             // button35
             // 
@@ -834,6 +844,7 @@ namespace CalculatorApp
             this.button35.Text = "9";
             this.button35.UseVisualStyleBackColor = false;
             this.button35.Click += new System.EventHandler(this.button35_Click);
+            this.button35.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Atajos_KeyDown);
             // 
             // button36
             // 
@@ -911,6 +922,7 @@ namespace CalculatorApp
             this.button39.Text = "=";
             this.button39.UseVisualStyleBackColor = false;
             this.button39.Click += new System.EventHandler(this.button39_Click);
+            this.button39.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Atajos_KeyDown);
             this.button39.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
             this.button39.MouseLeave += new System.EventHandler(this.General_MouseLeave);
             this.button39.MouseHover += new System.EventHandler(this.General_MouseHover);
@@ -931,6 +943,7 @@ namespace CalculatorApp
             this.button40.Text = "+";
             this.button40.UseVisualStyleBackColor = false;
             this.button40.Click += new System.EventHandler(this.Signo_Click);
+            this.button40.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Atajos_KeyDown);
             this.button40.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
             this.button40.MouseLeave += new System.EventHandler(this.General_MouseLeave);
             this.button40.MouseHover += new System.EventHandler(this.General_MouseHover);
@@ -951,6 +964,7 @@ namespace CalculatorApp
             this.button41.Text = "-";
             this.button41.UseVisualStyleBackColor = false;
             this.button41.Click += new System.EventHandler(this.Signo_Click);
+            this.button41.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Atajos_KeyDown);
             this.button41.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
             this.button41.MouseLeave += new System.EventHandler(this.General_MouseLeave);
             this.button41.MouseHover += new System.EventHandler(this.General_MouseHover);
@@ -971,6 +985,7 @@ namespace CalculatorApp
             this.button42.Text = "×";
             this.button42.UseVisualStyleBackColor = false;
             this.button42.Click += new System.EventHandler(this.Signo_Click);
+            this.button42.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Atajos_KeyDown);
             this.button42.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
             this.button42.MouseLeave += new System.EventHandler(this.General_MouseLeave);
             this.button42.MouseHover += new System.EventHandler(this.General_MouseHover);
@@ -991,6 +1006,7 @@ namespace CalculatorApp
             this.button43.Text = "÷";
             this.button43.UseVisualStyleBackColor = false;
             this.button43.Click += new System.EventHandler(this.Signo_Click);
+            this.button43.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Atajos_KeyDown);
             this.button43.MouseDown += new System.Windows.Forms.MouseEventHandler(this.General_MouseDown);
             this.button43.MouseLeave += new System.EventHandler(this.General_MouseLeave);
             this.button43.MouseHover += new System.EventHandler(this.General_MouseHover);
